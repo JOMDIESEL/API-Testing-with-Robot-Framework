@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.1 on win32)" generated="20220424 22:24:33.395" rpa="false" schemaversion="2">
+<suite id="s1" name="AT 001" source="C:\Users\Jom Doppio\Desktop\Test01\AT_001.robot">
+<test id="s1-t1" name="TC_001 Get user profile success">
+<kw name="Verify response status code should be 200">
+<arg>${stat_correct}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=get_assets</arg>
+<arg>url=https://reqres.in</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220424 22:24:33.837" level="INFO">Creating Session using : alias=get_assets, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220424 22:24:33.836" endtime="20220424 22:24:33.837"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>get_assets</arg>
+<arg>api/users/${id}</arg>
+<arg>expected_status=${stat_correct}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220424 22:24:34.681" level="INFO">GET Request : url=https://reqres.in/api/users/12 
+ path_url=/api/users/12 
+ headers={'User-Agent': 'python-requests/2.27.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220424 22:24:34.681" level="INFO">GET Response : url=https://reqres.in/api/users/12 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 24 Apr 2022 15:24:34 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"11c-Y8Nrcu5DO2DrJvfp3zc2PKGiar4"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'MISS', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=rMnLTH1c7pmdAH1CklQzqNYhvLZe7zkXAZQOc52EqZuOuZiNkI8HlwN0BY1WtawB%2F9qLCXuCQKgD%2BTGH0ulnVJaXYoPPGPi7%2FxGDIIOFw%2B0aNkXkCBV5qUr3ZWk%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '700fd8b93fcd5bff-BKK', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"data":{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20220424 22:24:34.681" level="INFO">C:\Users\Jom Doppio\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220424 22:24:34.681" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:33.837" endtime="20220424 22:24:34.681"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${stat_correct}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220424 22:24:34.685" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:34.681" endtime="20220424 22:24:34.685"/>
+</kw>
+<status status="PASS" starttime="20220424 22:24:33.836" endtime="20220424 22:24:34.685"/>
+</kw>
+<kw name="Compare the response body with expected ID">
+<arg>${id}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=get_assets</arg>
+<arg>url=https://reqres.in</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220424 22:24:34.686" level="INFO">Creating Session using : alias=get_assets, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220424 22:24:34.686" endtime="20220424 22:24:34.686"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>get_assets</arg>
+<arg>api/users/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220424 22:24:34.776" level="INFO">GET Request : url=https://reqres.in/api/users/12 
+ path_url=/api/users/12 
+ headers={'User-Agent': 'python-requests/2.27.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220424 22:24:34.776" level="INFO">GET Response : url=https://reqres.in/api/users/12 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 24 Apr 2022 15:24:34 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"11c-Y8Nrcu5DO2DrJvfp3zc2PKGiar4"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '0', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=rvjRaq%2Feg%2BlmAx%2BZsR%2BT4GLXjAHpSD2f%2BJVcq75kYPjMdjwX%2BEdyu0a%2FWR0MKEkk0ICpxdGsLz4d3yewUmk7WKEGJI1LzQV44Kmn5MK2UWvoY3pypCuaFewxoJI%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '700fd8bd8fbe26c9-BKK', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"data":{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20220424 22:24:34.776" level="INFO">C:\Users\Jom Doppio\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220424 22:24:34.777" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:34.686" endtime="20220424 22:24:34.777"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${User_id}</var>
+<arg>${response.json()['data']['id']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220424 22:24:34.778" level="INFO">${User_id} = 12</msg>
+<status status="PASS" starttime="20220424 22:24:34.777" endtime="20220424 22:24:34.778"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${User_id}</arg>
+<arg>${id}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220424 22:24:34.778" endtime="20220424 22:24:34.778"/>
+</kw>
+<status status="PASS" starttime="20220424 22:24:34.685" endtime="20220424 22:24:34.778"/>
+</kw>
+<kw name="Compare the response body with expected email">
+<arg>${email}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=get_assets</arg>
+<arg>url=https://reqres.in</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220424 22:24:34.779" level="INFO">Creating Session using : alias=get_assets, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220424 22:24:34.779" endtime="20220424 22:24:34.780"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>get_assets</arg>
+<arg>api/users/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220424 22:24:34.877" level="INFO">GET Request : url=https://reqres.in/api/users/12 
+ path_url=/api/users/12 
+ headers={'User-Agent': 'python-requests/2.27.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220424 22:24:34.877" level="INFO">GET Response : url=https://reqres.in/api/users/12 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 24 Apr 2022 15:24:34 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"11c-Y8Nrcu5DO2DrJvfp3zc2PKGiar4"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '0', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=LoemrmXwckhyRVg%2BfuDUiDHVpwR2T8p%2BBjjpcPfDXQ7DxkIanNycuPQ1x%2Fgvq0CEpGWOOIdG6SJ%2FUEyUuUVMt8xDI3asC5%2F4aOtOL1VN1IEevBlnpfwh3Fsi%2BJc%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '700fd8be1d7626e6-BKK', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"data":{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20220424 22:24:34.877" level="INFO">C:\Users\Jom Doppio\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220424 22:24:34.877" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:34.780" endtime="20220424 22:24:34.877"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${User_email}</var>
+<arg>${response.json()['data']['email']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220424 22:24:34.884" level="INFO">${User_email} = rachel.howell@reqres.in</msg>
+<status status="PASS" starttime="20220424 22:24:34.877" endtime="20220424 22:24:34.884"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${User_email}</arg>
+<arg>${email}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220424 22:24:34.885" endtime="20220424 22:24:34.885"/>
+</kw>
+<status status="PASS" starttime="20220424 22:24:34.779" endtime="20220424 22:24:34.885"/>
+</kw>
+<kw name="Compare the response body with expected first name">
+<arg>${first_name}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=get_assets</arg>
+<arg>url=https://reqres.in</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220424 22:24:34.886" level="INFO">Creating Session using : alias=get_assets, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220424 22:24:34.886" endtime="20220424 22:24:34.886"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>get_assets</arg>
+<arg>api/users/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220424 22:24:35.013" level="INFO">GET Request : url=https://reqres.in/api/users/12 
+ path_url=/api/users/12 
+ headers={'User-Agent': 'python-requests/2.27.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220424 22:24:35.013" level="INFO">GET Response : url=https://reqres.in/api/users/12 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 24 Apr 2022 15:24:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"11c-Y8Nrcu5DO2DrJvfp3zc2PKGiar4"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '1', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=qc2RYEIydjFSMDGUhA7NvpXRnRsvHrP6C7kg%2F68ARsEfbsI1JyhPnGkR5mWIYmcY159MhorjEIahUcGw9Xe4DyD5pxLIKwzQKOcM%2Fn80skWwLMUfNn6ZlZJxr0E%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '700fd8bef87f26fd-BKK', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"data":{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20220424 22:24:35.013" level="INFO">C:\Users\Jom Doppio\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220424 22:24:35.013" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:34.886" endtime="20220424 22:24:35.013"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${User_first_name}</var>
+<arg>${response.json()['data']['first_name']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220424 22:24:35.028" level="INFO">${User_first_name} = Rachel</msg>
+<status status="PASS" starttime="20220424 22:24:35.013" endtime="20220424 22:24:35.028"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${User_first_name}</arg>
+<arg>${first_name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220424 22:24:35.028" endtime="20220424 22:24:35.028"/>
+</kw>
+<status status="PASS" starttime="20220424 22:24:34.885" endtime="20220424 22:24:35.028"/>
+</kw>
+<kw name="Compare the response body with expected last name">
+<arg>${Last_name}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=get_assets</arg>
+<arg>url=https://reqres.in</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220424 22:24:35.029" level="INFO">Creating Session using : alias=get_assets, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220424 22:24:35.029" endtime="20220424 22:24:35.029"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>get_assets</arg>
+<arg>api/users/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220424 22:24:35.126" level="INFO">GET Request : url=https://reqres.in/api/users/12 
+ path_url=/api/users/12 
+ headers={'User-Agent': 'python-requests/2.27.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220424 22:24:35.126" level="INFO">GET Response : url=https://reqres.in/api/users/12 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 24 Apr 2022 15:24:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"11c-Y8Nrcu5DO2DrJvfp3zc2PKGiar4"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '1', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=dSO9Fp7M7DmkyvzX%2BsA1yNMjinL3qXkoJgweGr4brbmNTTckg%2FyKUslq1nEx0aEr5m3JTxP%2Fs1p43FD8Ulj6lFv6zFEy83Tr3bSD7pPSYjhMrFn0brcEYuJOLuo%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '700fd8bfb9f1272e-BKK', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"data":{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20220424 22:24:35.126" level="INFO">C:\Users\Jom Doppio\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220424 22:24:35.126" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:35.029" endtime="20220424 22:24:35.126"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${User_last_name}</var>
+<arg>${response.json()['data']['last_name']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220424 22:24:35.131" level="INFO">${User_last_name} = Howell</msg>
+<status status="PASS" starttime="20220424 22:24:35.131" endtime="20220424 22:24:35.131"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${User_last_name}</arg>
+<arg>${last_name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220424 22:24:35.131" endtime="20220424 22:24:35.132"/>
+</kw>
+<status status="PASS" starttime="20220424 22:24:35.028" endtime="20220424 22:24:35.132"/>
+</kw>
+<kw name="Compare the response body with expected avatar">
+<arg>${avatar}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=get_assets</arg>
+<arg>url=https://reqres.in</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220424 22:24:35.133" level="INFO">Creating Session using : alias=get_assets, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220424 22:24:35.132" endtime="20220424 22:24:35.133"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>get_assets</arg>
+<arg>api/users/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220424 22:24:35.223" level="INFO">GET Request : url=https://reqres.in/api/users/12 
+ path_url=/api/users/12 
+ headers={'User-Agent': 'python-requests/2.27.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220424 22:24:35.223" level="INFO">GET Response : url=https://reqres.in/api/users/12 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 24 Apr 2022 15:24:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"11c-Y8Nrcu5DO2DrJvfp3zc2PKGiar4"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '1', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=6QwxQMcCJstkOARjekotenvuCuhYHKtoxu%2BOB5%2FI8HcmKb%2B0p9afpB3GM6Otd3ArdsKqb5Rwo7fNUsgH37Y7avO2QSkhg4EV2EEZewjWAniGHrIpyHzrIoTfev4%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '700fd8c04cc82721-BKK', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"data":{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20220424 22:24:35.223" level="INFO">C:\Users\Jom Doppio\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220424 22:24:35.225" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:35.133" endtime="20220424 22:24:35.225"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${User_avatar}</var>
+<arg>${response.json()['data']['avatar']}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220424 22:24:35.226" level="INFO">${User_avatar} = https://reqres.in/img/faces/12-image.jpg</msg>
+<status status="PASS" starttime="20220424 22:24:35.225" endtime="20220424 22:24:35.226"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${User_avatar}</arg>
+<arg>${avatar}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220424 22:24:35.226" endtime="20220424 22:24:35.226"/>
+</kw>
+<status status="PASS" starttime="20220424 22:24:35.132" endtime="20220424 22:24:35.226"/>
+</kw>
+<status status="PASS" starttime="20220424 22:24:33.826" endtime="20220424 22:24:35.227"/>
+</test>
+<test id="s1-t2" name="TC_002 Get user profile but user not found">
+<kw name="Verify response status code should be 404">
+<arg>${stat_err}</arg>
+<arg>${invalid_id}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=get_assets</arg>
+<arg>url=https://reqres.in</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220424 22:24:35.229" level="INFO">Creating Session using : alias=get_assets, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220424 22:24:35.229" endtime="20220424 22:24:35.230"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>get_assets</arg>
+<arg>api/users/${invalid_id}</arg>
+<arg>expected_status=${stat_err}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220424 22:24:35.846" level="INFO">GET Request : url=https://reqres.in/api/users/1234 
+ path_url=/api/users/1234 
+ headers={'User-Agent': 'python-requests/2.27.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220424 22:24:35.846" level="INFO">GET Response : url=https://reqres.in/api/users/1234 
+ status=404, reason=Not Found 
+ headers={'Date': 'Sun, 24 Apr 2022 15:24:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'MISS', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=SQJWggFPpgaPSymVMfHSh8%2F3t4Tz1Uf%2FQ0NCbz%2FK7Bc%2BpVH%2FoKXFUdoBDzY3pdUBuWY74EWWbh6og3rnRceLmYC%2FJtGfaoZmbqoZU5HNtXylI2FPeNoJZbLRuBM%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '700fd8c0fcf826fd-BKK', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={} 
+ </msg>
+<msg timestamp="20220424 22:24:35.846" level="INFO">C:\Users\Jom Doppio\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220424 22:24:35.847" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:35.230" endtime="20220424 22:24:35.847"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${stat_err}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220424 22:24:35.848" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:35.847" endtime="20220424 22:24:35.849"/>
+</kw>
+<status status="PASS" starttime="20220424 22:24:35.229" endtime="20220424 22:24:35.849"/>
+</kw>
+<kw name="Verify response data is empty">
+<arg>${stat_err}</arg>
+<arg>${invalid_id}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=get_assets</arg>
+<arg>url=https://reqres.in</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220424 22:24:35.850" level="INFO">Creating Session using : alias=get_assets, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220424 22:24:35.850" endtime="20220424 22:24:35.850"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>get_assets</arg>
+<arg>api/users/${id}</arg>
+<arg>expected_status=${stat_err}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220424 22:24:35.959" level="INFO">GET Request : url=https://reqres.in/api/users/1234 
+ path_url=/api/users/1234 
+ headers={'User-Agent': 'python-requests/2.27.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220424 22:24:35.959" level="INFO">GET Response : url=https://reqres.in/api/users/1234 
+ status=404, reason=Not Found 
+ headers={'Date': 'Sun, 24 Apr 2022 15:24:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '0', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=EPHkPiZOH9FpoVTGRCyu%2FDGJYxF62UPI10EE%2FWKN18fPnCYuqE2gdahIVGmk93vj76bIOqYF80R6YxWlUs31VKZaFPZjjtUWZ9BQLlFVC43taFNnAEjm3g5D0sA%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '700fd8c4df2f272d-BKK', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={} 
+ </msg>
+<msg timestamp="20220424 22:24:35.959" level="INFO">C:\Users\Jom Doppio\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220424 22:24:35.959" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:35.850" endtime="20220424 22:24:35.959"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.content}</arg>
+<arg>${json_data}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220424 22:24:35.970" level="INFO">Argument types are:
+&lt;class 'bytes'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220424 22:24:35.959" endtime="20220424 22:24:35.970"/>
+</kw>
+<status status="PASS" starttime="20220424 22:24:35.849" endtime="20220424 22:24:35.970"/>
+</kw>
+<status status="PASS" starttime="20220424 22:24:35.228" endtime="20220424 22:24:35.971"/>
+</test>
+<status status="PASS" starttime="20220424 22:24:33.395" endtime="20220424 22:24:35.972"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="AT 001">AT 001</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
