@@ -1,0 +1,9 @@
+FROM python:3.8
+
+RUN pip install robotframework
+
+WORKDIR /app
+
+COPY . .
+
+CMD ["robot", "tests.robot"]
